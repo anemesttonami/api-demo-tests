@@ -28,6 +28,7 @@ dependencies {
     testImplementation 'org.slf4j:slf4j-log4j12:2.0.14'
     testImplementation 'io.qameta.allure:allure-rest-assured:2.21.0'
     testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.38'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.38'
