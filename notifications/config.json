@@ -13,6 +13,8 @@
   },
   "telegram": {
     "token": "7878013835:AAFrMC5wmqbaVDJNXRdk4z6wB9rs1syE2Pw",
-    "chat": "-1003137492361"
+    "chat": "-1003137492361",
+    "topic": "",
+    "replyTo": ""
   }
 }
