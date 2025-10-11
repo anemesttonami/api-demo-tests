@@ -18,11 +18,6 @@ public class LoginTests {
 
     private static final LoginClient CLIENT = new LoginClient();
 
-    @BeforeAll
-    static void setUp() {
-        RestAssured.baseURI = "https://reqres.in";
-    }
-
     @Test
     @Tag("smoke")
     void loginCheck(){
@@ -32,7 +27,7 @@ public class LoginTests {
 
         step("Логинимся и проверяем корректность сгенерированного токена.", ()->
                 Assertions
-                        .assertThat(CLIENT.login(data))
+                        .assertThat((String) CLIENT.login(data).jsonPath().get("token"))
                         .as("Токен отсутствует.")
                         .isNotEmpty()
                         .as("Полученный токен отличается от ожидаемого.")
