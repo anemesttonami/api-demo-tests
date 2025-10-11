@@ -1,6 +1,7 @@
 package in.reqres.clients;
 
 import io.qameta.allure.Step;
+import io.restassured.http.ContentType;
 
 import java.util.Map;
 
@@ -25,6 +26,7 @@ public class LoginClient {
                 when().
                 post().
                 then().
-                statusCode(200).extract().response().jsonPath().get("token");
+                statusCode(200).
+                contentType(ContentType.JSON).extract().response().jsonPath().get("token");
     }
 }

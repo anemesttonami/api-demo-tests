@@ -5,6 +5,7 @@ import io.qameta.allure.Epic;
 import io.restassured.RestAssured;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -23,6 +24,7 @@ public class LoginTests {
     }
 
     @Test
+    @Tag("smoke")
     void loginCheck(){
         Map<String,String> data = new HashMap<>();
         data.put("email","eve.holt@reqres.in");

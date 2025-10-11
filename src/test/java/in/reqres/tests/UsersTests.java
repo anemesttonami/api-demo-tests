@@ -5,12 +5,11 @@ import in.reqres.models.ResponseData;
 import in.reqres.models.User;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -26,12 +25,8 @@ public class UsersTests {
 
     private static final UsersClient CLIENT = new UsersClient();
 
-    @BeforeAll
-    static void setUp() {
-        RestAssured.baseURI = "https://reqres.in";
-    }
-
     @Test
+    @Tag("smoke")
     @DisplayName("Получить список пользователей и проверить max id.")
     @Description("Проверяем, что список пользователей может быть получен и максимальный id в списке = 12.")
     void maxIdInUsersListIsCorrect() {
@@ -42,6 +37,7 @@ public class UsersTests {
     }
 
     @Test
+    @Tag("smoke")
     @DisplayName("Создание пользователя и генерация времени создания пользователя.")
     @Description("Проверяем, что пользователь создаётся и время с точностью до секунд генерируется корректно.")
     void createUserAndCheckCreationTime() {
@@ -55,15 +51,17 @@ public class UsersTests {
     }
 
     @Test
+    @Tag("smoke")
     @DisplayName("Удаление пользователя работает.")
     void isDeleteUserWorking() {
         CLIENT.deleteUser(2);
     }
 
     @Test
+    @Tag("regress")
     @DisplayName("Различные проверки для эндпоинта, отдающего ответ с задержкой.")
     void differentVariantsChecksOfDelayedResponse() {
-        ValidatableResponse validatableResponse = CLIENT.getDelayedResponse(3);
+        ValidatableResponse validatableResponse = CLIENT.getDelayedUsersListResponse(3);
 
         Response response = validatableResponse.extract().response();
 

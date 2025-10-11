@@ -5,57 +5,40 @@ import in.reqres.models.Users;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 
-import static in.reqres.utils.AllureFormatter.setReqRespTemplates;
+import static in.reqres.specs.UsersSpecifications.*;
 import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
 
 public class UsersClient {
 
     @Step("Запрашиваем список пользователей.")
     public Users getUsersList() {
-        return given().basePath("/api/users").
-                header("x-api-key", "reqres-free-v1").
-                filter(setReqRespTemplates()).
-                queryParam("page", 2)
-                .log()
-                .uri().
+        return given().
+                spec(getBaseReqSpec).
+                queryParam("page", 2).
                 when().
                 get().
                 then().
-                statusCode(200).
-                extract().
-                as(Users.class);
+                spec(getUsersListRespSpec).
+                extract().as(Users.class);
     }
 
     @Step("Создаем пользователя.")
     public User createUser(User user) {
         return given().
-                basePath("/api/users").
-                header("x-api-key", "reqres-free-v1").
-                filter(setReqRespTemplates()).
-                contentType(JSON).
+                spec(getCreateUserReqSpec).
                 body(user).
-                log().
-                uri().
-                log().
-                body().
                 when().
                 post().
                 then().
-                statusCode(201).
-                extract().
-                as(User.class);
+                spec(getCreateUserRespSpec).
+                extract().as(User.class);
     }
 
     @Step("Удаляем пользователя id = {0}.")
     public void deleteUser(int userId) {
         given().
-                basePath("/api/users").
-                header("x-api-key", "reqres-free-v1").
-                filter(setReqRespTemplates()).
+                spec(getBaseReqSpec).
                 pathParam("userId", userId).
-                log().
-                uri().
                 when().
                 delete("{userId}").
                 then().
@@ -63,17 +46,13 @@ public class UsersClient {
     }
 
     @Step("Получить ответ с задержкой.")
-    public ValidatableResponse getDelayedResponse(int delayValueInSec) {
+    public ValidatableResponse getDelayedUsersListResponse(int delayValueInSec) {
         return given().
-                basePath("/api/users").
+                spec(getBaseReqSpec).
                 queryParam("delay", delayValueInSec).
-                header("x-api-key", "reqres-free-v1").
-                filter(setReqRespTemplates()).
-                log().
-                uri().
                 when().
                 get().
                 then().
-                statusCode(200).log().body();
+                spec(getUsersListRespSpec);
     }
 }
