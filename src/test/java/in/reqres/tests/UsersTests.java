@@ -27,7 +27,7 @@ public class UsersTests {
 
     @Test
     @Tag("smoke")
-    @DisplayName("Получить список пользователей и проверить max id.")
+    @DisplayName("Максимальный id в списке пользователей.")
     @Description("Проверяем, что список пользователей может быть получен и максимальный id в списке = 12.")
     void maxIdInUsersListIsCorrect() {
         int maxId = CLIENT.getUsersList().getData()
@@ -52,14 +52,14 @@ public class UsersTests {
 
     @Test
     @Tag("smoke")
-    @DisplayName("Удаление пользователя работает.")
+    @DisplayName("Удаление пользователя.")
     void isDeleteUserWorking() {
         CLIENT.deleteUser(2);
     }
 
     @Test
     @Tag("regress")
-    @DisplayName("Различные проверки для эндпоинта, отдающего ответ с задержкой.")
+    @DisplayName("Ответ с задержкой и консистентность тела ответа (различные проверки).")
     void differentVariantsChecksOfDelayedResponse() {
         ValidatableResponse validatableResponse = CLIENT.getDelayedUsersListResponse(3);
 
