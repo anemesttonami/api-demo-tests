@@ -1,7 +1,8 @@
 {
   "base": {
-    "logo": "images/allure.svg",
+    "logo": "",
     "project": "API autotests",
+    "environment": "Developer PC",
     "durationFormat": "HH:mm:ss.SSS",
     "comment": "",
     "reportLink": "",
