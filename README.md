@@ -21,22 +21,28 @@
 ---
 
 <div align="center">
-  <h2>Используемые технологии в проекте</h2>
 
-  <div style="display: flex; flex-wrap: nowrap; overflow-x: auto; justify-content: center; gap: 25px;">
-    <div><img width="50" src="images/java-logo.svg"><br>Java</div>
-    <div><img width="50" src="images/git-logo.svg"><br>GitHub</div>
-    <div><img width="50" src="images/gradle-logo.svg"><br>Gradle</div>
-    <div><img width="50" src="images/IDEA-logo.svg"><br>IntelliJ IDEA</div>
-    <div><img width="50" src="images/junit5-logo.svg"><br>JUnit5</div>
-    <div><img width="50" src="images/lombok.png"><br>Lombok</div>
-    <div><img width="50" src="images/rest-assured.png"><br>RestAssured</div>
-    <div><img width="50" src="images/allure.svg"><br>Allure Report</div>
-    <div><img width="50" src="images/allureTestOps.svg"><br>Allure TestOps</div>
-    <div><img width="50" src="images/jenkins.svg"><br>Jenkins</div>
-    <div><img width="50" src="images/telegram.svg"><br>Telegram</div>
-  </div>
+<h2>Используемые технологии в проекте</h2>
+
+<table>
+  <tr>
+    <td align="center"><img width="50" src="images/java-logo.svg"><br>Java</td>
+    <td align="center"><img width="50" src="images/git-logo.svg"><br>GitHub</td>
+    <td align="center"><img width="50" src="images/gradle-logo.svg"><br>Gradle</td>
+    <td align="center"><img width="50" src="images/IDEA-logo.svg"><br>IntelliJ IDEA</td>
+    <td align="center"><img width="50" src="images/junit5-logo.svg"><br>JUnit5</td>
+    <td align="center"><img width="50" src="images/lombok.png"><br>Lombok</td>
+    <td align="center"><img width="50" src="images/rest-assured.png"><br>RestAssured</td>
+    <td align="center"><img width="50" src="images/allure.svg"><br>Allure Report</td>
+    <td align="center"><img width="50" src="images/allureTestOps.svg"><br>Allure TestOps</td>
+    <td align="center"><img width="50" src="images/jenkins.svg"><br>Jenkins</td>
+    <td align="center"><img width="50" src="images/telegram.svg"><br>Telegram</td>
+  </tr>
+</table>
+
 </div>
+
+
 
 ---
 
