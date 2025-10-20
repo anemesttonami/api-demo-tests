@@ -23,7 +23,7 @@
 <div align="center">
   <h2>Используемые технологии в проекте</h2>
 
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 25px; text-align: center;">
+  <div style="display: flex; flex-wrap: nowrap; overflow-x: auto; justify-content: center; gap: 25px;">
     <div><img width="50" src="images/java-logo.svg"><br>Java</div>
     <div><img width="50" src="images/git-logo.svg"><br>GitHub</div>
     <div><img width="50" src="images/gradle-logo.svg"><br>Gradle</div>
