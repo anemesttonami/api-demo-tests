@@ -19,30 +19,24 @@
 - [🔔 Telegram](#telegram)
 
 ---
+
 <div align="center">
+  <h2>Используемые технологии в проекте</h2>
 
-<a id="технологии"></a>
-## Используемые технологии в проекте
-
-<p  align="center">
-
-  <img width="5%" title="Java" src="images/java-logo.svg">    
-  <img width="5%" title="Github" src="images/git-logo.svg">
-  <img width="5%" title="Gradle" src="images/gradle-logo.svg ">
-  <img width="5%" title="RestAssured" src="images/rest-assured.png">
-  <img width="5%" title="Lombok" src="images/lombok.png">
-  <img width="5%" title="IntelliJ IDEA" src="images/IDEA-logo.svg">
-  <img width="5%" title="JUnit5" src="images/junit5-logo.svg">
-  <img width="5%" title="Allure Report" src="images/allure.svg">
-  <img width="5%" title="Allure TestOps" src="images/allureTestOps.svg">
-  <img width="5%" title="Jenkins" src="images/jenkins.svg">
-  <img width="5%" title="Telegram" src="images/telegram.svg">
-
-</p>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 25px; text-align: center;">
+    <div><img width="50" src="images/java-logo.svg"><br>Java</div>
+    <div><img width="50" src="images/git-logo.svg"><br>GitHub</div>
+    <div><img width="50" src="images/gradle-logo.svg"><br>Gradle</div>
+    <div><img width="50" src="images/IDEA-logo.svg"><br>IntelliJ IDEA</div>
+    <div><img width="50" src="images/junit5-logo.svg"><br>JUnit5</div>
+    <div><img width="50" src="images/lombok.png"><br>Lombok</div>
+    <div><img width="50" src="images/rest-assured.png"><br>RestAssured</div>
+    <div><img width="50" src="images/allure.svg"><br>Allure Report</div>
+    <div><img width="50" src="images/allureTestOps.svg"><br>Allure TestOps</div>
+    <div><img width="50" src="images/jenkins.svg"><br>Jenkins</div>
+    <div><img width="50" src="images/telegram.svg"><br>Telegram</div>
+  </div>
 </div>
-
-
-
 
 ---
 
