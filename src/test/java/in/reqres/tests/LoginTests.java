@@ -13,9 +13,10 @@ import java.util.Map;
 import static io.qameta.allure.Allure.step;
 
 @Epic("Login API")
-public class LoginTests {
+public class LoginTests extends BaseTest {
 
     private static final LoginClient CLIENT = new LoginClient();
+    private static final String ENDPOINT = "/login";
 
     @Test
     @Tag("smoke")
@@ -27,9 +28,11 @@ public class LoginTests {
 
         step("Логинимся и проверяем корректность сгенерированного токена.", () ->
                 Assertions
-                        .assertThat((String) CLIENT.login(data).jsonPath().get("token"))
+                        .assertThat((String) CLIENT.login(data, ENDPOINT).jsonPath().get("token"))
                         .as("Токен отсутствует.")
                         .isNotEmpty()
+                        .as("Токен должен быть алфанамерическим и содержать минимум 14 символов.")
+                        .matches("[A-Za-z0-9]{14,}")
                         .as("Полученный токен отличается от ожидаемого.")
                         .isEqualTo("QpwL5tke4Pnpja7X4"));
     }

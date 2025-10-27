@@ -14,47 +14,47 @@ import static io.restassured.RestAssured.given;
 public class UsersClient {
 
     @Step("Запрашиваем список пользователей.")
-    public Users getUsersList() {
+    public Users getUsersList(String endpoint) {
         return given().
                 spec(baseUserReqSpec).
                 queryParam("page", 2).
                 when().
-                get().
+                get(endpoint).
                 then().
                 spec(usersListRespSpec).
                 extract().as(Users.class);
     }
 
     @Step("Создаем пользователя.")
-    public User createUser(User user) {
+    public User createUser(User user, String endpoint) {
         return given().
                 spec(createUserReqSpec).
                 body(user).
                 when().
-                post().
+                post(endpoint).
                 then().
                 spec(createUserRespSpec).
                 extract().as(User.class);
     }
 
     @Step("Удаляем пользователя id = {0}.")
-    public void deleteUser(int userId) {
+    public void deleteUser(int userId, String endpoint) {
         given().
                 spec(baseUserReqSpec).
                 pathParam("userId", userId).
                 when().
-                delete("{userId}").
+                delete(endpoint + "{userId}").
                 then().
                 statusCode(204);
     }
 
     @Step("Получить ответ с задержкой.")
-    public ValidatableResponse getDelayedUsersListResponse(int delayValueInSec) {
+    public ValidatableResponse getDelayedUsersListResponse(int delayValueInSec, String endpoint) {
         return given().
                 spec(baseUserReqSpec).
                 queryParam("delay", delayValueInSec).
                 when().
-                get().
+                get(endpoint).
                 then().
                 spec(usersListRespSpec);
     }

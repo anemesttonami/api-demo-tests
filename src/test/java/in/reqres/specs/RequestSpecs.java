@@ -7,9 +7,8 @@ import static io.restassured.RestAssured.with;
 import static io.restassured.http.ContentType.JSON;
 
 public class RequestSpecs {
+
     public static RequestSpecification baseUserReqSpec = with().
-            baseUri("https://reqres.in").
-            basePath("/api/users").
             header("x-api-key", "reqres-free-v1").
             filter(setReqRespTemplates()).
             log().all();
@@ -17,12 +16,9 @@ public class RequestSpecs {
     public static RequestSpecification createUserReqSpec = with().
             spec(baseUserReqSpec).
             contentType(JSON).
-            log().
-            body();
+            log().body();
 
     public static RequestSpecification baseLoginReqSpec = with().
-            baseUri("https://reqres.in").
-            basePath("/api/login").
             header("x-api-key", "reqres-free-v1").
             filter(setReqRespTemplates()).
             log().all();

@@ -12,12 +12,12 @@ import static io.restassured.RestAssured.given;
 public class LoginClient {
 
     @Step("Логинимся.")
-    public Response login(Map<String, String> data) {
+    public Response login(Map<String, String> data, String endpoint) {
         return given().
                 spec(loginReqSpec).
                 body(data).
                 when().
-                post().
+                post(endpoint).
                 then().
                 spec(loginRespSpec).
                 extract().response();

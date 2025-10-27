@@ -21,16 +21,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.*;
 
 @Epic("User API")
-public class UsersTests {
+public class UsersTests extends BaseTest {
 
     private static final UsersClient CLIENT = new UsersClient();
+    private static final String ENDPOINT = "/users";
 
     @Test
     @Tag("smoke")
     @DisplayName("Максимальный id в списке пользователей.")
     @Description("Проверяем, что список пользователей может быть получен и максимальный id в списке = 12.")
     void maxIdInUsersListIsCorrect() {
-        int maxId = CLIENT.getUsersList().getData()
+        int maxId = CLIENT.getUsersList(ENDPOINT).getData()
                 .stream().map(ResponseData::getId).max(Integer::compareTo).get();
 
         Assertions.assertEquals(12, maxId, "Максимальный id пользователя не равен 12.");
@@ -45,7 +46,7 @@ public class UsersTests {
         user.setName("morpheus");
         user.setJob("leader");
 
-        User createdUser = CLIENT.createUser(user);
+        User createdUser = CLIENT.createUser(user, ENDPOINT);
 
         Assertions.assertTrue(isTimeDiffNotMoreThanTenSeconds(createdUser.getCreatedAt()));
     }
@@ -54,14 +55,14 @@ public class UsersTests {
     @Tag("smoke")
     @DisplayName("Удаление пользователя.")
     void isDeleteUserWorking() {
-        CLIENT.deleteUser(2);
+        CLIENT.deleteUser(2, ENDPOINT);
     }
 
     @Test
     @Tag("regress")
     @DisplayName("Ответ с задержкой и консистентность тела ответа (различные проверки).")
     void differentVariantsChecksOfDelayedResponse() {
-        ValidatableResponse validatableResponse = CLIENT.getDelayedUsersListResponse(3);
+        ValidatableResponse validatableResponse = CLIENT.getDelayedUsersListResponse(3, ENDPOINT);
 
         Response response = validatableResponse.extract().response();
 
