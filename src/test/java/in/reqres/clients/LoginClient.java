@@ -5,8 +5,8 @@ import io.restassured.response.Response;
 
 import java.util.Map;
 
-import static in.reqres.specs.LoginSpec.loginReqSpec;
-import static in.reqres.specs.LoginSpec.loginRespSpec;
+import static in.reqres.specs.RequestSpecs.loginReqSpec;
+import static in.reqres.specs.ResponseSpecs.loginRespSpec;
 import static io.restassured.RestAssured.given;
 
 public class LoginClient {
