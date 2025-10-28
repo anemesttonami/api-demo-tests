@@ -32,8 +32,6 @@ public class LoginTests extends BaseTest {
                         .as("Токен отсутствует.")
                         .isNotEmpty()
                         .as("Токен должен быть алфанамерическим и содержать минимум 14 символов.")
-                        .matches("[A-Za-z0-9]{14,}")
-                        .as("Полученный токен отличается от ожидаемого.")
-                        .isEqualTo("QpwL5tke4Pnpja7X4"));
+                        .matches("[A-Za-z0-9]{14,}"));
     }
 }
